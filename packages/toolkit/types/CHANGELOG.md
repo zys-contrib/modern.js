@@ -1,5 +1,25 @@
 # @modern-js/types
 
+## 1.6.0
+
+### Minor Changes
+
+- 33cebd2: chore(core): move Hooks types define to `@modern-js/core`
+
+  chore(core): 移动 Hooks 类型定义到 `@modern-js/core` 包
+
+- 33cebd2: chore(types): delete `http-proxy-middleware` dependence(unused)
+
+  chore(types): 删除未使用依赖 `http-proxy-middleware`
+
+## 1.5.6
+
+### Patch Changes
+
+- efab847: use client init data first if exist
+- Updated dependencies [5b7a5a7]
+  - @modern-js/plugin@1.4.2
+
 ## 1.5.5
 
 ### Patch Changes

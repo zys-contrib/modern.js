@@ -1,5 +1,26 @@
 # @modern-js/plugin-bff
 
+## 1.6.2
+
+### Patch Changes
+
+- a27ab8d: feat: add onApiChange hook for bff hot reload
+  feat: 为 BFF 热更新优化，添加 onApiChange 钩子
+- Updated dependencies [a27ab8d]
+  - @modern-js/bff-core@1.1.2
+  - @modern-js/server-utils@1.2.11
+  - @modern-js/utils@1.7.12
+
+## 1.6.1
+
+### Patch Changes
+
+- d86f009: feat: optimize implentation of registerModernRuntimePath
+- Updated dependencies [dc4676b]
+- Updated dependencies [d86f009]
+  - @modern-js/utils@1.7.12
+  - @modern-js/bff-core@1.1.1
+
 ## 1.6.0
 
 ### Minor Changes

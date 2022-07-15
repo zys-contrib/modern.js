@@ -1,6 +1,5 @@
-import { getBabelChain } from '@modern-js/babel-preset-lib';
+import { getBabelChain, BabelChain } from '@modern-js/babel-preset-lib';
 import type { TransformOptions } from '@babel/core';
-import type { BabelChain } from '@modern-js/babel-chain';
 import type { IModulePresetOption, ISyntaxOption } from './types';
 import { getBuildInPlugins } from './built-in';
 
@@ -47,6 +46,7 @@ export const getModuleBabelChain = (
     importStyle: modulePresetOption.importStyle,
     staticDir: modulePresetOption.staticDir,
     styleDir: modulePresetOption.styleDir,
+    sourceDir: modulePresetOption.sourceDir,
   });
   chain.merge(buildInPlugins);
 

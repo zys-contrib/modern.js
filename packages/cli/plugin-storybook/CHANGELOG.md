@@ -1,5 +1,64 @@
 # @modern-js/plugin-storybook
 
+## 1.3.17
+
+### Patch Changes
+
+- 6980b96c0: hotfix: fix webpack js/ts module.rule config of the plugin storybook
+  hotfix: 修复 storybook 的对于 js/ts 的 webpack module.rule 配置
+- Updated dependencies [6980b96c0]
+  - @modern-js/webpack@1.12.1
+
+## 1.3.16
+
+### Patch Changes
+
+- 8d0f1b9: feat: rumtime config types
+  feat: 补充 runtime 配置类型
+- f6681f2: feat: add @modern-js/plugin-analyze plugin
+  feat: 添加 @modern-js/plugin-analyze 插件
+- f24efcd: chore(plugin-storybook): remove @modern-js/esbuild-compiler from dependencies
+
+  chore(plugin-storybook): 移除 @modern-js/esbuild-compiler 依赖
+
+- Updated dependencies [b74b0b6]
+- Updated dependencies [33cebd2]
+- Updated dependencies [8d0f1b9]
+- Updated dependencies [8b2aa56]
+- Updated dependencies [3e4a34f]
+- Updated dependencies [33cebd2]
+  - @modern-js/webpack@1.12.0
+  - @modern-js/plugin-analyze@1.5.0
+  - @modern-js/runtime@1.3.5
+  - @modern-js/plugin-router@1.2.16
+  - @modern-js/plugin-state@1.2.10
+  - @modern-js/utils@1.7.12
+
+## 1.3.15
+
+### Patch Changes
+
+- fix the logic about storybook use client oneOf rule
+
+  修复 storybook 使用 client oneOf rule 的逻辑
+
+## 1.3.14
+
+### Patch Changes
+
+- 69db11b: feat: change webpack output.publicPath for plugin-storybook
+
+  feat: 修改 plugin-storybook 的 webpack output.publicPath 配置
+
+- Updated dependencies [dc4676b]
+- Updated dependencies [80b47bc]
+- Updated dependencies [572d63b]
+- Updated dependencies [7124323]
+  - @modern-js/webpack@1.11.5
+  - @modern-js/utils@1.7.12
+  - @modern-js/plugin-state@1.2.10
+  - @modern-js/plugin-router@1.2.16
+
 ## 1.3.13
 
 ### Patch Changes

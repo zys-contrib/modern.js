@@ -9,7 +9,12 @@ import type {
   RuleSetConditionAbsolute,
 } from 'webpack';
 import type Chain from 'webpack-chain';
-import { ClientWebpackConfig } from '@modern-js/webpack';
+import {
+  ClientWebpackConfig,
+  JS_REGEX,
+  TS_REGEX,
+  mergeRegex,
+} from '@modern-js/webpack';
 import { CURRENT_PKG_PATH } from '../constants';
 
 const NodePolyfillPlugin: typeof import('node-polyfill-webpack-plugin') =
@@ -27,6 +32,19 @@ const resolveStorybookWebPackConfig = (
   { appDirectory }: { appDirectory: string },
 ) => {
   sbWebpackConfig.output = clientWebpackConfig.output;
+  if (typeof clientWebpackConfig.output === 'object') {
+    sbWebpackConfig.output = {
+      ...clientWebpackConfig.output,
+      publicPath:
+        clientWebpackConfig.output?.publicPath === '/'
+          ? '' // Keep it consistent with the storybook
+          : clientWebpackConfig.output?.publicPath,
+    };
+  } else {
+    sbWebpackConfig.output = {
+      publicPath: '',
+    };
+  }
   if (sbWebpackConfig.module) {
     const blackRuleList = [
       /\.css$/.toString(),
@@ -54,8 +72,8 @@ const resolveStorybookWebPackConfig = (
       rule =>
         rule.test &&
         rule.test instanceof RegExp &&
-        (rule.test.toString() === /\.(js|mjs|jsx)$|\.tsx?$/.toString() ||
-          rule.test.toString() === /\.(js|mjs|jsx)$/.toString()),
+        (rule.test.toString() === mergeRegex(JS_REGEX, TS_REGEX).toString() ||
+          rule.test.toString() === JS_REGEX.toString()),
     );
 
     if (!clientJsAndTsRule || !jsAndTsRule) {
@@ -95,9 +113,10 @@ const resolveStorybookWebPackConfig = (
         return true;
       },
     );
-    sbWebpackConfig.module.rules.push(
-      (clientWebpackConfig as any).module.rules[1],
-    );
+    const clientOneOfRule = (clientWebpackConfig as any).module.rules.filter(
+      (rule: any) => Boolean(rule.oneOf),
+    )[0];
+    sbWebpackConfig.module.rules.push(clientOneOfRule);
   }
   // 处理 resolve
   // 将已经合并的 storybook 和 Client 的resolve 配置到 Storybook resolve上
